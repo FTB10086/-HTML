@@ -1,0 +1,1594 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="ThemeMarch">
+    <title>Ethereum Express</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/icofont.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--    <link rel="stylesheet" href="assets/css/modal.video.min.css">-->
+    <style>
+        .react {
+            position: relative;
+            width: 100%;
+        }
+
+        .react:before {
+            display: block;
+            content: "";
+            width: 100%;
+            padding-top: 100%;
+        }
+
+        .react > div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 99;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video_wrap {
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9;
+            position: absolute;
+            height: 75%;
+            width: 52%;
+            min-width: 320px;
+        }
+
+        .video_wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+
+
+    <style>
+        .tips {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: 999;
+            padding: 20px 0;
+            margin: 100px auto 0;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .tips .link {
+            background-color: #0058ae;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            white-space: nowrap;
+            line-height: 20px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-align: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        #JQ_add_network {
+            user-select: none;
+            display: inline-block;
+            background-color: #0058ae;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 0 12px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        #JQ_add_network img {
+            width: 20px;
+            vertical-align: sub;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .tips {
+                margin-top: 80px;
+            }
+        }
+
+        .show_msg {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            z-index: 999;
+            width: 300px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".tm-section-active">
+
+
+<!-- Start Preloader -->
+<div id="tm-preloader">
+    <div class="tm-preloader-in">
+        <div class="bar bar-top"></div>
+        <div class="bar bar-right"></div>
+        <div class="bar bar-bottom"></div>
+        <div class="bar bar-left"></div>
+    </div>
+</div>
+<!-- End Preloader -->
+<!-- Start Site Header Wrap -->
+<header class="tm-site-header">
+
+    <div class="tm-header-menu">
+        <div class="container tm-header-menu-container">
+            <div class="tm-site-branding">
+                <!-- For Image Logo -->
+                <a href="/" class="tm-logo-link" style="max-width: none;">
+                    <img src="assets/img/logo.png" style="display: inline-block;height:50px;">
+                    <span class="tm-logo"
+                          style="color: #ffffff;font-size: 16px;vertical-align: middle;">Ethereum Express</span>
+                </a>
+            </div>
+            <nav class="tm-primary-nav tm-section-active">
+                <ul class="tm-primary-nav-list">
+                    <li class="menu-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="menu-item"><a href="#howitworks" class="nav-link">Advantage</a></li>
+                    <li class="menu-item"><a href="#tokensale" class="nav-link">TOKENOMICS</a></li>
+                    <li class="menu-item"><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                    <li class="menu-item"><a href="#team" class="nav-link">Team</a></li>
+
+
+                    <li class="menu-item"><a href="./ETE_202308111616.pdf" class="nav-link">AUDIT</a></li>
+                    <li class="menu-item"><a href="./WP.pdf" class="nav-link">WhitePaper</a></li>
+                    <li class="menu-item"><a href="https://scan.etescan.net/" class="nav-link">ETEScan</a></li>
+                    <li class="menu-item"><a href="https://www.eteswap.com/swap" class="nav-link">ETESwap</a></li>
+                    <li class="menu-item"><a href="https://defi.swft.pro/?sourceFlag=etebridge#/" class="nav-link">Chain Bridge</a></li>
+
+                    <!--                    <li class="menu-item"><a href="#faq" class="nav-link">Faq</a></li>-->
+                </ul>
+            </nav>
+        </div><!-- .tm-header-menu-container -->
+    </div><!-- .tm-header-menu -->
+</header><!-- .tm-site-header -->
+<!-- End Site Header Wrap -->
+<div class="tm-section-active tm-fix-bar">
+    <ul>
+        <li><a href="#home" class="nav-link"></a></li>
+        <li><a href="#about" class="nav-link"></a></li>
+        <li><a href="#video" class="nav-link"></a></li>
+        <li><a href="#howitworks" class="nav-link"></a></li>
+        <li><a href="#tokensale" class="nav-link"></a></li>
+        <li><a href="#roadmap" class="nav-link"></a></li>
+        <li><a href="#team" class="nav-link"></a></li>
+        <li><a href="#featured-company" class="nav-link"></a></li>
+        <!--        <li><a href="#faq" class="nav-link"></a></li>-->
+    </ul>
+</div>
+
+<div class="tips">
+    Join our telegram and twitter, get free airdrop gas tokens right now.
+    <a class="link" href="https://gleam.io/4Ksbq/ethereum-express-airdrop?amp" target="_blank">Get Airdrop</a>,
+    Add ETE Mainnet on Metamask
+    <span id="JQ_add_network"><img src="./assets/img/metamask-fox.svg" alt="">Metamask</span>
+</div>
+
+<!-- Start Hero Section -->
+<section class="tm-hero-section tm-style1 tm-bg" id="home" style="background-image: url(assets/img/hero-bg-v1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-hero-text">
+                    <h1 class="tm-hero-title tm-white-c tm-f42 tm-lg-f38 tm-fw-medium tm-m0 tm-lh60 col-xs-t-14 tm-md-f30 tm-md-lh40">
+                        Ethereum Express Network</h1>
+                    <div class="empty-space col-xs-b10"></div>
+                    <h2 class="tm-hero-sub-title tm-white-c tm-f24 tm-m0 tm-lh36 tm-md-f18 tm-md-lh26">Ethereum EVM L1
+                        <br>
+                        Faster, Safer, and Cheaper</h2>
+                    <div class="empty-space col-xs-b25"></div>
+                    <div class="tm-btn-group">
+                        <a href="https://uniswap.org/" class="tm-btn tm-style1" style="margin-top: 10px">BUY TOKEN:ETE
+                            (ERC20)</a>
+                        <a href="https://www.eteswap.com/swap" class="tm-btn tm-style1 tm-with-border"
+                           style="margin-top: 10px">BUY
+                            TOKEN:ETE (ETRC20)</a>
+                    </div>
+                </div>
+            </div><!-- .col -->
+            <div class="col-lg-6">
+                <div class="tm-countdown-outer">
+                    <div class="tm-countdown-wrap tm-style1 text-center">
+                        <div class="tm-countdown-bg"></div>
+                        <div class="tm-countdown-box">
+                            <div class="tm-countdown-heading tm-f20 tm-white-c tm-lh16">Pinksale launchpad Ends In</div>
+                            <div style="color: #595959;padding:20px 0;text-align:left;">
+                                <span>TOKEN EXPIRED</span>
+                                <span>AUG/30 2023</span>
+                            </div>
+                            <div class="tm-token-status-bar tm-f16 tm-white-c">
+                                <span class="tm-token-start">Start</span>
+                                <!--                                <span class="tm-token-softcap">Softcap</span>-->
+                                <span class="tm-token-hardcap">End</span>
+                                <div class="tm-token-status-bar-out">
+                                    <div class="tm-token-status-bar-in" style="width: 0" id="JQ_process"></div>
+                                </div>
+                            </div><!-- .tm-token-status-bar -->
+                            <div class="empty-space col-xs-b35"></div>
+                            <div class="text-center">
+                                <a href="https://www.pinksale.finance/launchpad/0x1e5dC94b349bd7687D85e67af92052410DbFa363?chain=ETH"
+                                   class="tm-btn">Contribute Now</a>
+                            </div>
+                            <div class="empty-space col-xs-b30"></div>
+                            <div class="tm-token-support tm-f18 tm-light-blue-c">The Pinksale launchpad has ended. We will launch a 
+                                public sale on Uniswap V2 at 3:00 AM UTC on September 2, 2023.
+                            </div>
+                        </div><!-- .tm-countdown-box -->
+                    </div><!-- .tm-countdown-wrap -->
+                </div>
+            </div><!-- .col -->
+        </div>
+    </div>
+</section>
+<!-- End Hero Section -->
+
+<!-- Start About Section -->
+<section class="tm-about-wrap" id="about">
+    <div class="empty-space col-md-b90 col-xs-b55"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-about-img-wrap">
+                    <div class="tm-about-img">
+                        <img src="assets/img/about-img1.png" alt="">
+                        <img src="assets/img/ethereum1.png" alt="" class="tm-ethereum">
+                        <img src="assets/img/ethereum2.png" alt="" class="tm-ethereum2">
+                        <img src="assets/img/ethereum2.png" alt="" class="tm-ethereum3">
+                        <img src="assets/img/ethereum2.png" alt="" class="tm-ethereum4">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="tm-about">
+                    <h2 class="tm-m0 tm-lh40 col-xs-t-1 tm-md-f28 tm-md-lh35">What is the<br>
+                        Ethereum Express network?</h2>
+                    <div class="empty-space col-md-b20 col-xs-b10"></div>
+                    <div class="tm-f20 tm-md-f15 tm-m0 tm-lh30 tm-md-lh20">The Ethereum Express network is a faster,
+                        safer, and cheaper L1 network based on the underlying framework of the Ethereum EVM.
+                    </div>
+                    <div class="empty-space col-md-b10 col-xs-b15"></div>
+                    <h2 class="tm-m0 tm-lh60 tm-md-f28 tm-md-lh34">Why ?</h2>
+                    <div class="empty-space col-md-b10 col-xs-b10"></div>
+                    <div class="tm-about-text tm-f20 tm-md-f15 tm-lh32 tm-md-lh20 col-xs-t-1">
+                        <p>The Ethereum network carries out more and more applications and smart contracts. As resource
+                            usage increases, the Ethereum network becomes congested, and the GAS consumed by transfers
+                            and calling contracts has soared. In this case, similar to the Ethereum Express Network,
+                            layer 1 will be more competitive and advantageous.</p>
+                    </div>
+                </div>
+            </div><!-- .col -->
+        </div>
+    </div>
+    <div class="empty-space col-md-b85 col-xs-b55"></div>
+</section>
+<!-- End About Section -->
+
+<!-- Start Video Section -->
+<div class="tm-about-video" id="video" style="position: relative">
+    <img src="assets/img/video-bg.jpg" alt="Video Background">
+    <div class="video_wrap">
+        <video id="JQ_video" poster="assets/img/v.jpg" src="./media/01.mp4"></video>
+        <div id="JQ_play" class="tm-video-button js-video-button">
+            <i class="icofont icofont-play-alt-3"></i>
+            <span class="tm-video-animaiton"><span></span></span>
+        </div>
+    </div>
+</div>
+<!-- End Video Section -->
+
+
+<!-- Start How it Works -->
+<section class="tm-ocher-work" id="howitworks">
+    <div class="empty-space col-md-b85 col-xs-b50"></div>
+    <div class="container">
+        <div class="tm-section-heading tm-style1">
+            <div class="tm-section-heading-left">
+                <h2 class="tm-m0 tm-md-f28 tm-md-lh34">Ethereum Express Network <br>
+                    will be more competitive</h2>
+            </div>
+            <div class="tm-section-heading-right">
+                <h2 class="col-xs-b20 tm-md-f28 tm-md-lh34">Why?</h2>
+                <div class="tm-f20 tm-md-f15 tm-lh30 tm-md-lh24">We will build a blockchain browser independently, which
+                    will be more powerful and reliable than ETHscan over time. We will also build a wallet system and
+                    ETEswap on our network to make our customers more secure. We will abandon most of the original
+                    wormhole systems, and use CEXs（ERC20 & ETRC20）and third-party cross-chain partners to coordinate
+                    cross-chains, which is more secure and reliable.
+                </div>
+            </div>
+        </div>
+        <div class="empty-space col-md-b75 col-xs-b50"></div>
+        <div class="tm-section-heading tm-style2">
+            <h2 class="text-center col-xs-b2 col-xs-t-2 tm-md-f28 tm-md-lh34">Look at our adventages</h2>
+        </div>
+        <div class="empty-space col-md-b55 col-xs-b35"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <a style="display:block;" href="https://etescan.net" class="col-lg-3 col-sm-6">
+                <div class="tm-single-work">
+                    <div class="tm-single-work-icon">
+                        <!--                        <img src="assets/img/logo.png" style="display: inline-block;height:120px">-->
+                        <i class="flaticon-ethereum"></i>
+                    </div>
+                    <div class="tm-single-work-text tm-f20 tm-md-f18 tm-md-lh28 tm-lh30"> Self-built browser <br>ETEscan
+                    </div>
+                </div>
+                <div class="empty-space col-md-b30 col-xs-b30"></div>
+            </a>
+            <a style="display:block;" href="https://eteswap.net" class="col-lg-3 col-sm-6">
+                <div class="tm-single-work">
+                    <div class="tm-single-work-icon"><i class="flaticon-strategy"></i></div>
+                    <div class="tm-single-work-text tm-f20 tm-md-f18 tm-md-lh28 tm-lh30">Easy to used <br> ETEswap</div>
+                </div>
+                <div class="empty-space col-md-b30 col-xs-b30"></div>
+            </a>
+            <a style="display:block;" href="" class="col-lg-3 col-sm-6">
+                <div class="tm-single-work">
+                    <div class="tm-single-work-icon"><i class="flaticon-block"></i></div>
+                    <div class="tm-single-work-text tm-f20 tm-md-f18 tm-md-lh28 tm-lh30">High security<br>ETEWallet
+                    </div>
+                </div>
+                <div class="empty-space col-md-b30 col-xs-b30"></div>
+            </a>
+            <a style="display:block;" href="" class="col-lg-3 col-sm-6">
+                <div class="tm-single-work">
+                    <div class="tm-single-work-icon"><i class="flaticon-decentralized"></i></div>
+
+                    <div class="tm-single-work-text tm-f20 tm-md-f18 tm-md-lh28 tm-lh30">CEXs & Bridges<br>（ERC20 &
+                        ETRC20）
+                    </div>
+                </div>
+                <div class="empty-space col-md-b30 col-xs-b30"></div>
+            </a>
+        </div>
+    </div>
+    <div class="empty-space col-md-b60 col-xs-b30"></div>
+</section>
+<!-- End How it Works -->
+
+<!-- Start Token Sale -->
+<section class="tm-token-sale tm-light-blue-bg" id="tokensale">
+    <div class="empty-space col-md-b85 col-xs-b45"></div>
+    <div class="container">
+        <h2 class="tm-m0 tm-light-blue-c tm-md-f28" style="text-align: center">Tokenomics of ETE(ERC20) &
+            ETE(ETRC20)</h2>
+        <div class="empty-space col-md-b75 col-xs-b50"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="react">
+                    <div id="e_erc">
+
+                    </div>
+                </div>
+                <div class="empty-space col-lg-b90 col-xs-b55"></div>
+            </div><!-- .col -->
+            <div class="col-xl-6">
+                <div class="react">
+                    <div id="e_etrc20">
+
+                    </div>
+                </div>
+            </div><!-- .col -->
+        </div>
+    </div>
+</section>
+<!-- End Token Sale -->
+
+<!-- Start Road Map Section -->
+<section class="tm-roadmap-wrap tm-gray-bg" id="roadmap">
+    <div class="empty-space col-md-b90 col-xs-b55"></div>
+    <div class="container">
+        <div class="tm-section-heading tm-style2 text-center col-xs-t-1">
+            <h2 class="tm-f34 col-xs-b2 tm-md-f28 tm-md-lh34">Roadmap</h2>
+            <div class="empty-space col-md-b25 col-xs-b10"></div>
+            <div class="tm-f20 tm-md-f15 col-xs-t-4 col-xs-b1">We have big plans for the future of Request.</div>
+        </div>
+    </div>
+    <div class="empty-space col-md-b85 col-xs-b45"></div>
+    <div class="container">
+        <div class="tm-roadmap">
+            <div class="tm-roadmap-active">
+                <div class="tm-roadmap-active-in">
+                    <div class="tm-ra"></div>
+                    <div class="tm-ra1"></div>
+                    <div class="tm-ra2"></div>
+                </div>
+                <div class="tm-ra3"></div>
+            </div>
+            <div class="slider slider-nav">
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2022</span>
+                                <span>JUL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2022</span>
+                                <span>OCT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2022</span>
+                                <span>DEC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>FEB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>ARP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>JUN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>JUL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>AUG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>SEP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>OCT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>NOV</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2023</span>
+                                <span>DEC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2024</span>
+                                <span>FEB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2024</span>
+                                <span>ARP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2024</span>
+                                <span>JUN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2024</span>
+                                <span>AUG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-year-box-out">
+                        <div class="tm-year-box">
+                            <div class="tm-year-box-in">
+                                <span>2024</span>
+                                <span>OCT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slider slider-for">
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Germination project. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Round A financing of 5M $. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Team completed. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Start compiling ETEscan. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">First test block is generated. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">ETEscan basic finish. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Created community channels. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Pinksale launchpad ICO & ETE Mainnet & ETEswap. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Public sale & listing MEXC. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Active community & listing Bitget. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Attract more dapp creators & listing Gate.io. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Start ETE wallet & listing Crypto.com. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Expand influence & listing Bitfinex. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Target users 50 million & listing Kucoin. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">More than 200 DAPPs on ETE chain & listing OKX. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Market Cap top 50 & listing Coinbase. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="tm-roadmap-text tm-lh27">
+                        <h3 class="tm-f20 tm-md-f15 tm-mb">Become a mainstream public chain & listing Binance. </h3>
+                        <div class="empty-space col-md-b20 col-xs-b20"></div>
+                        <div class="tm-f20 tm-md-f15"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty-space col-md-b80 col-xs-b45"></div>
+</section>
+<!-- End Road Map Section -->
+
+<!-- Start Team Section -->
+<section class="tm-member tm-bg" id="team" style="background-image: url(assets/img/member-bg.jpg);">
+    <div class="tm-team-wrap">
+        <div class="empty-space col-md-b90 col-xs-b55"></div>
+        <h2 class="text-center col-xs-b2 tm-light-blue-c col-xs-t-1 tm-md-f28 tm-md-lh34">Meet Our Team</h2>
+        <div class="empty-space col-md-b55 col-xs-b35"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="tm-member-card text-center">
+                        <div class="tm-member-thumb"><img src="assets/img/1.jpg" alt=""></div>
+                        <div class="tm-member-desc tm-white-bg">
+                            <h3 class="tm-member-name tm-f20 tm-md-f15 tm-blue-c col-xs-b5">George Alexiev</h3>
+                            <div class="tm-member-designation tm-f18">Senior Developer</div>
+                        </div>
+                        <div class="empty-space col-md-b35 col-xs-b25"></div>
+                        <!--<ul class="tm-member-social-btn">-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-linkedin"></i></span></a></li>-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-telegram"></i></span></a></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="empty-space col-md-b30 col-xs-b30"></div>
+                </div><!-- .col -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="tm-member-card text-center">
+                        <div class="tm-member-thumb"><img src="assets/img/14.jpg" alt=""></div>
+                        <div class="tm-member-desc tm-white-bg">
+                            <h3 class="tm-member-name tm-f20 tm-md-f15 tm-blue-c col-xs-b5">Pathum Anurada</h3>
+                            <div class="tm-member-designation tm-f18">UX/ UI designer</div>
+                        </div>
+
+
+                        <div class="empty-space col-md-b35 col-xs-b25"></div>
+                        <!--<ul class="tm-member-social-btn">-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-linkedin"></i></span></a></li>-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-telegram"></i></span></a></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="empty-space col-md-b30 col-xs-b30"></div>
+                </div><!-- .col -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="tm-member-card text-center">
+
+                        <div class="tm-member-thumb"><img src="assets/img/3.jpg" alt=""></div>
+                        <div class="tm-member-desc tm-white-bg">
+                            <h3 class="tm-member-name tm-f20 tm-md-f15 tm-blue-c col-xs-b5">Luna Zhao</h3>
+                            <div class="tm-member-designation tm-f18">Legal Compliance</div>
+                        </div>
+                        <div class="empty-space col-md-b35 col-xs-b25"></div>
+                        <!--<ul class="tm-member-social-btn">-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-linkedin"></i></span></a></li>-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-telegram"></i></span></a></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="empty-space col-md-b30 col-xs-b30"></div>
+                </div><!-- .col -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="tm-member-card text-center">
+                        <div class="tm-member-thumb"><img src="assets/img/4.jpg" alt=""></div>
+                        <div class="tm-member-desc tm-white-bg">
+                            <h3 class="tm-member-name tm-f20 tm-md-f15 tm-blue-c col-xs-b5">Jenny Kostin</h3>
+                            <div class="tm-member-designation tm-f18">Fronted Developer</div>
+                        </div>
+                        <div class="empty-space col-md-b35 col-xs-b25"></div>
+                        <!--<ul class="tm-member-social-btn">-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-linkedin"></i></span></a></li>-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-telegram"></i></span></a></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="empty-space col-md-b30 col-xs-b30"></div>
+                </div><!-- .col -->
+            </div>
+        </div>
+    </div><!-- .tm-team-wrap -->
+    <div class="tm-advisor-wrap">
+        <div class="empty-space col-md-b60 col-xs-b25"></div>
+        <h2 class="text-center col-xs-b2 tm-light-blue-c col-xs-t-1 tm-md-f28 tm-md-lh34">Meet Our Advisors</h2>
+        <div class="empty-space col-md-b55 col-xs-b35"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="tm-member-card text-center">
+                        <div class="tm-member-thumb"><img src="assets/img/5.jpg" alt=""></div>
+                        <div class="tm-member-desc tm-white-bg">
+                            <h3 class="tm-member-name tm-f20 tm-md-f15 tm-blue-c col-xs-b5">Dan Handy</h3>
+                            <div class="tm-member-designation tm-f18">CEO & Founder</div>
+                        </div>
+                        <div class="empty-space col-md-b35 col-xs-b25"></div>
+                        <!--<ul class="tm-member-social-btn">-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-linkedin"></i></span></a></li>-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-telegram"></i></span></a></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="empty-space col-md-b30 col-xs-b30"></div>
+                </div><!-- .col -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="tm-member-card text-center">
+                        <div class="tm-member-thumb"><img src="assets/img/6.jpg" alt=""></div>
+                        <div class="tm-member-desc tm-white-bg">
+                            <h3 class="tm-member-name tm-f20 tm-md-f15 tm-blue-c col-xs-b5">Gerardo Rivas</h3>
+                            <div class="tm-member-designation tm-f18">Executive President</div>
+                        </div>
+                        <div class="empty-space col-md-b35 col-xs-b25"></div>
+                        <!--<ul class="tm-member-social-btn">-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-linkedin"></i></span></a></li>-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-telegram"></i></span></a></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="empty-space col-md-b30 col-xs-b30"></div>
+                </div><!-- .col -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="tm-member-card text-center">
+                        <div class="tm-member-thumb"><img src="assets/img/2.jpg" alt=""></div>
+                        <div class="tm-member-desc tm-white-bg">
+                            <h3 class="tm-member-name tm-f20 tm-md-f15 tm-blue-c col-xs-b5">David Jevans</h3>
+                            <div class="tm-member-designation tm-f18">Director Business</div>
+                        </div>
+                        <div class="empty-space col-md-b35 col-xs-b25"></div>
+                        <!--<ul class="tm-member-social-btn">-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-linkedin"></i></span></a></li>-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-telegram"></i></span></a></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="empty-space col-md-b30 col-xs-b30"></div>
+                </div><!-- .col -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="tm-member-card text-center">
+                        <div class="tm-member-thumb"><img src="assets/img/12.jpg" alt=""></div>
+                        <div class="tm-member-desc tm-white-bg">
+                            <h3 class="tm-member-name tm-f20 tm-md-f15 tm-blue-c col-xs-b5">Arda Kaya</h3>
+                            <div class="tm-member-designation tm-f18">Director Marketing</div>
+                        </div>
+                        <div class="empty-space col-md-b35 col-xs-b25"></div>
+                        <!--<ul class="tm-member-social-btn">-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-linkedin"></i></span></a></li>-->
+                        <!--	<li><a href="#" class="tm-social-btn"><span><i class="fa fa-telegram"></i></span></a></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="empty-space col-md-b30 col-xs-b30"></div>
+                </div><!-- .col -->
+            </div>
+        </div>
+        <div class="empty-space col-md-b65 col-xs-b30"></div>
+    </div><!-- .tm-advisor-wrap -->
+</section>
+<!-- End Team Section -->
+
+<!-- Start Token Seciton -->
+<div class="tm-token-wrap" id="featured-company">
+    <div class="empty-space col-md-b95 col-xs-b60"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tm-token">
+                    <h2 class="tm-token-heading tm-m0 tm-md-f28 tm-md-lh34">Token Listed</h2>
+                    <div class="tm-token-list">
+                        <a href="https://uniswap.org/" class="tm-single-token"><img src="assets/img/Uniswap.png" alt=""></a>
+                        <a href="https://eteswap.net" class="tm-single-token"><img src="assets/img/ETEswap.png" alt=""></a>
+                        <a href="https://www.lbank.com" class="tm-single-token"><img src="assets/img/lbank.png" alt=""></a>
+                         <a href="https://www.mexc.com/zh-CN/exchange/ETE_USDT?_from=header" class="tm-single-token"><img src="assets/img/mexc.png"
+                                                                                     alt=""></a>
+                        <a href="https://www.bitget.com/zh-TW/spot/ETEUSDT" class="tm-single-token"><img src="assets/img/Bitget.png"
+                                                                                                               alt=""></a>
+                    </div>
+                </div>
+
+                <div class="tm-token-bar">
+                    <span class="tm-bar-circle"></span>
+                    <span class="tm-bar-circle"></span>
+                </div>
+                <div class="tm-token">
+                    <h2 class="tm-token-heading tm-m0 tm-md-f28 tm-md-lh34">Partners</h2>
+                    <div class="tm-token-list">
+                        <a href="https://www.pinksale.finance/" class="tm-single-token">
+                            <img src="assets/img/pinkswap.png" alt="">
+                        </a>
+                        <a href="https://www.dexview.com" class="tm-single-token">
+                            <img src="assets/img/dexviews.png" alt="">
+                        </a>
+                        <a href="https://coinmarketcap.com" class="tm-single-token">
+                            <img src="assets/img/coinmarketcap.png" alt="">
+                        </a>
+                        <a href="https://www.coingecko.com" class="tm-single-token">
+                            <img src="assets/img/coingecko.png" alt="">
+                        </a>
+                        <a href="https://www.dextools.io" class="tm-single-token">
+                            <img src="assets/img/dextools.png" alt="">
+                        </a>
+                        <a href="https://beosin.com" class="tm-single-token">
+                            <img src="assets/img/beosin.png" alt="">
+                        </a>
+                        <a href="https://avedex.cc/token/0x000000e29fa2bd3e5c215ffc71aa66b29c9769a2-ete" class="tm-single-token">
+                            <img src="assets/img/AVE.png" alt="">
+                        </a>
+                        <a href="https://www.geckoterminal.com/" class="tm-single-token">
+                            <img src="assets/img/geckoterminal.png" alt="">
+                        </a>
+
+                    </div>
+                </div>
+                <div class="tm-token-bar">
+                    <span class="tm-bar-circle"></span>
+                    <span class="tm-bar-circle"></span>
+                </div>
+                <div class="tm-token">
+                    <h2 class="tm-token-heading tm-m0 tm-md-f28 tm-md-lh34">Dapps</h2>
+                    <div class="tm-token-list">
+                        <a href="" class="tm-single-token"><img src="assets/img/NFT.png" alt=""></a>
+                        <a href="https://eteswap.net" class="tm-single-token"><img src="assets/img/ETEswap.png" alt=""></a>
+                        <a href="https://lottery.eteswap.com/" class="tm-single-token"><img src="assets/img/lottery.png" alt=""></a>
+                        <a href="https://avedex.cc/token/0x000000e29fa2bd3e5c215ffc71aa66b29c9769a2-ete" class="tm-single-token"><img src="assets/img/AVE.png" alt=""></a>
+                        <a href="https://tokentool.app/" class="tm-single-token"><img src="assets/img/Tokentools.png" alt=""></a>
+                        <a href="https://defi.swft.pro/#/" class="tm-single-token"><img src="assets/img/swft.png" alt=""></a>
+                        <!-- <a href="https://www.mexc.com/" class="tm-single-token"><img src="assets/img/mexc.png"
+                                                                                     alt=""></a>
+                        <a href="https://www.bitget.com/" class="tm-single-token"><img src="assets/img/Bitget.png"
+                                                                                       alt=""></a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty-space col-md-b95 col-xs-b60"></div>
+</div>
+<!-- End Token Seciton -->
+
+<!-- Start FAQ Section -->
+
+<!--<section class="tm-faq-wrap tm-bg" id="faq" style="background-image: url(assets/img/faq-bg.jpg);">-->
+<!--    <div class="empty-space col-md-b90 col-xs-b55"></div>-->
+<!--    <h2 class="text-center col-xs-b2 tm-light-blue-c col-xs-t-1 tm-md-f28 tm-md-lh34">Frequently Asked Questions</h2>-->
+<!--    <div class="empty-space col-md-b55 col-xs-b35"></div>-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-12">-->
+<!--                <div class="tabs animated-fade">-->
+<!--                    <ul class="tab-links">-->
+<!--                        <li class="active"><a href="#top-question">Top Questions</a></li>-->
+<!--                        <li><a href="#company">Company</a></li>-->
+<!--                        <li><a href="#product">Product</a></li>-->
+<!--                        <li><a href="#token-sale">Token Sale</a></li>-->
+<!--                    </ul>-->
+<!--                    <div class="tab-content">-->
+<!--                        <div id="top-question" class="tab active">-->
+<!--                            <div class="tm-faq">-->
+<!--                                <div class="accordian-wrapper">-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f16">What is Ocher ?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f16">Why do we need-->
+<!--                                            Ethereum?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f16">Which countries does-->
+<!--                                            populous currently support?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f16">What kind security-->
+<!--                                            does populous use to protect my account?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f16">What problems does-->
+<!--                                            Ocher attempt to solve?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f16">What would you-->
+<!--                                            consider to be a success with this ICO?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f16">Are Ocher token-->
+<!--                                            ERC-20 resellable?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f16">Whom can I reach out-->
+<!--                                            to with other questions?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>&lt;!&ndash; .tm-faq &ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <div id="company" class="tab">-->
+<!--                            <div class="tm-faq">-->
+<!--                                <div class="accordian-wrapper">-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What is Ocher ?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Why do we need-->
+<!--                                            Ethereum?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Which countries does-->
+<!--                                            populous currently support?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What kind security-->
+<!--                                            does populous use to protect my account?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What problems does-->
+<!--                                            Ocher attempt to solve?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What would you-->
+<!--                                            consider to be a success with this ICO?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Are Ocher token-->
+<!--                                            ERC-20 resellable?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Whom can I reach out-->
+<!--                                            to with other questions?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>&lt;!&ndash; .tm-faq &ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <div id="product" class="tab">-->
+<!--                            <div class="tm-faq">-->
+<!--                                <div class="accordian-wrapper">-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What is Ocher ?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Why do we need-->
+<!--                                            Ethereum?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Which countries does-->
+<!--                                            populous currently support?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What kind security-->
+<!--                                            does populous use to protect my account?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What problems does-->
+<!--                                            Ocher attempt to solve?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What would you-->
+<!--                                            consider to be a success with this ICO?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Are Ocher token-->
+<!--                                            ERC-20 resellable?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Whom can I reach out-->
+<!--                                            to with other questions?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>&lt;!&ndash; .tm-faq &ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <div id="token-sale" class="tab">-->
+<!--                            <div class="tm-faq">-->
+<!--                                <div class="accordian-wrapper">-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What is Ocher ?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Why do we need-->
+<!--                                            Ethereum?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Which countries does-->
+<!--                                            populous currently support?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What kind security-->
+<!--                                            does populous use to protect my account?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What problems does-->
+<!--                                            Ocher attempt to solve?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">What would you-->
+<!--                                            consider to be a success with this ICO?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Are Ocher token-->
+<!--                                            ERC-20 resellable?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                    <div class="single-accordian">-->
+<!--                                        <h3 class="accordian-head tm-light-blue-c tm-f20 tm-md-f15">Whom can I reach out-->
+<!--                                            to with other questions?</h3>-->
+<!--                                        <div class="accordian-body">Ocher is the most functional template for Ethereum-->
+<!--                                            block chain ERC Token ICO’S. Switable for star up ICO’s. A token sale,-->
+<!--                                            sometimes referred to as an initial coin offering (ICO), is form of-->
+<!--                                            rowd-funding for digital currency-related projects.-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; .single-accordian &ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>&lt;!&ndash; .tm-faq &ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>&lt;!&ndash; .col &ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="empty-space col-md-b85 col-xs-b50"></div>-->
+<!--</section>-->
+<!-- End FAQ Section -->
+
+
+<!-- Start Siter Footer -->
+<footer class="tm-site-footer tm-bg" id="footer" style="background-image: url(assets/img/footer-bg.jpg);">
+    <div class="empty-space col-md-b90 col-xs-b55"></div>
+    <div class="tm-top-footer">
+        <div class="container">
+            <div class="row" style="justify-content: center;">
+                <div class="col-lg-7">
+                    <h2 class="tm-footer-bar col-xs-b2 tm-light-blue-c text-center col-xs-t-1 tm-md-f28 tm-md-lh34">Join
+                        us in the community</h2>
+                    <div class="empty-space col-md-b55 col-xs-b40"></div>
+                    <div class="tm-social-btn-wrap tm-style1 col-xs-b1">
+                        <div class="tm-socil-bar-wrap">
+                            <div class="tm-socil-bar bar1"></div>
+                            <div class="tm-socil-bar bar2"></div>
+                            <div class="tm-socil-bar bar3"></div>
+                            <div class="tm-socil-bar bar4"></div>
+                            <div class="tm-socil-bar bar5"></div>
+                            <div class="tm-socil-bar bar6"></div>
+                            <div class="tm-socil-bar bar7"></div>
+                            <div class="tm-socil-bar bar8"></div>
+                        </div>
+                        <div class="tm-single-social-btn tm-active">
+                            <a href="/cdn-cgi/l/email-protection#89fafcf9f9e6fbfdc9ecfdeca7e7ecfdfee6fbe2" class="tm-email-btn"><span><i
+                                    class="fa fa-envelope-o"></i></span></a>
+                            <div class="tm-social-btn-text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="10636560607f6264507564753e7e7564677f627b">[email&#160;protected]</a></div>
+                        </div>
+
+                        <div class="tm-single-social-btn">
+                            <a href="https://www.facebook.com/Ethereum.Express/"
+                               class="tm-social-btn tm-facebook"><span><i class="fa fa-facebook"></i></span></a>
+                            <div class="tm-social-btn-text">Facebook</div>
+                        </div>
+                        <div class="tm-single-social-btn">
+                            <a href="https://www.linkedin.com/in/david-ete-671754287/"
+                               class="tm-social-btn tm-linkedin"><span><i class="fa fa-linkedin"></i></span></a>
+                            <div class="tm-social-btn-text">Linkedin</div>
+                        </div>
+                        <div class="tm-single-social-btn">
+                            <a href="https://twitter.com/ethereumexpres" class="tm-social-btn tm-twitter"><span><i
+                                    class="fa fa-twitter"></i></span></a>
+                            <div class="tm-social-btn-text">Twitter</div>
+                        </div>
+
+
+                        <div class="tm-single-social-btn">
+                            <a href="https://app.slack.com/client/T05MARAQH33/C05LY6NQZEE"
+                               class="tm-social-btn tm-reddit"><span><i class="fa fa-slack"></i></span></a>
+                            <div class="tm-social-btn-text">Slack</div>
+                        </div>
+
+
+                        <div class="tm-single-social-btn">
+                            <a href="https://t.me/Ethereum_Express_Group" class="tm-social-btn tm-telegram"><span><i
+                                    class="fa fa-telegram"></i></span></a>
+                            <div class="tm-social-btn-text">Telegram</div>
+                        </div>
+                        <div class="tm-single-social-btn">
+                            <a href="https://medium.com/@EthereumExpress" class="tm-social-btn tm-medium"><span><i
+                                    class="fa fa-medium"></i></span></a>
+                            <div class="tm-social-btn-text">Medium</div>
+                        </div>
+                        <div class="tm-single-social-btn">
+                            <a href="https://www.instagram.com/ethereumexpress/"
+                               class="tm-social-btn tm-github"><span><i class="fa fa-instagram"></i></span></a>
+                            <div class="tm-social-btn-text">Instagram</div>
+                        </div>
+                        <div class="tm-single-social-btn">
+                            <a href="https://www.youtube.com/@EthereumExpress" class="tm-social-btn tm-youtube"><span><i
+                                    class="fa fa-youtube-play"></i></span></a>
+                            <div class="tm-social-btn-text">Youtube</div>
+                        </div>
+                    </div>
+                    <div class="empty-space col-md-b60 col-xs-b60"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty-space col-md-b95 col-xs-b55"></div>
+    <div class="tm-copyright tm-white-c tm-f20 tm-md-f15">
+        <div class="container">© 2022 JUL. Designed By Ethereum Express</div>
+    </div>
+</footer>
+<!-- End Siter Footer -->
+
+<!-- Scroll Up -->
+<div id='scrollup'><i class="fa fa-angle-double-up"></i></div>
+
+<!-- Scripts -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/smoothScroll.min.js"></script>
+<script src="assets/js/jQuery.easing.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/slick.min.js"></script>
+<!--<script src="assets/js/modal.video.min.js"></script>-->
+<script src="assets/js/echarts.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+    $(function () {
+        !function () {
+            var chartDom = document.getElementById('e_erc');
+            var myChart = echarts.init(chartDom);
+            var option = {
+                title: {
+                    text: 'ERC20 Tokenomic',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 20,
+                        color: "#7ab9ff"
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (data) {
+                        return data.seriesName + '<br/>' + data.data.name + '(' + data.data.desc + ')' + ':' + data.percent + '%'
+                    }
+                },
+                legend: {
+                    top: "10%",
+                    textStyle: {
+                        color: "#7ab9ff"
+                    },
+                    orient: "vertical",
+                    align: "left",
+                    left: 0
+                },
+                series: [
+                    {
+                        name: 'ERC20',
+                        type: 'pie',
+                        radius: [0, '50%'],
+                        left: 60,
+                        roseType: 'area',
+                        itemStyle: {
+                            borderRadius: 5
+                        },
+                        label: {
+                            color: '#fff'
+                        },
+                        data: [
+                            {value: 5, name: 'MEXC', desc: "Locked 1 Month"},
+                            {value: 5, name: 'Bitget', desc: "Locked 2 Month"},
+                            {value: 5, name: 'Gate', desc: "Locked 3 Month"},
+                            {value: 5, name: 'LBANK', desc: "Locked 4 Month"},
+                            {value: 10, name: 'Bitfinex', desc: "Locked 6 Month"},
+                            {value: 10, name: 'Kucoin', desc: "Locked 8 Month"},
+                            {value: 10, name: 'OKX', desc: "Locked 10 Month"},
+                            {value: 10, name: 'Coinbase', desc: "Locked 12 Month"},
+                            {value: 10, name: 'Binance', desc: "Locked 14 Month"},
+                            {value: 10, name: 'Team', desc: "Locked 16 Month"},
+                            {value: 9.5, name: 'Uniswap', desc: "Locked 16 Month"},
+                            {value: 10.5, name: 'Persale', desc: "Pinksale Launchpad"},
+                        ]
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        }();
+        !function () {
+            var chartDom = document.getElementById('e_etrc20');
+            var myChart = echarts.init(chartDom);
+            var option = {
+                title: {
+                    text: 'ETRC20 Tokenomic',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 20,
+                        color: "#7ab9ff"
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (data) {
+                        return data.seriesName + '<br/>' + data.data.name + '(' + data.data.desc + ')' + ':' + data.percent + '%'
+                    }
+                },
+                legend: {
+                    top: "10%",
+                    textStyle: {
+                        color: "#7ab9ff"
+                    },
+                    orient: "vertical",
+                    align: "left",
+                    left: 0
+                },
+                series: [
+                    {
+                        name: 'ETRC20',
+                        type: 'pie',
+                        radius: [0, '50%'],
+                        left: 60,
+                        roseType: 'area',
+                        itemStyle: {
+                            borderRadius: 5
+                        },
+                        label: {
+                            color: '#fff'
+                        },
+                        data: [
+                            {value: 5, name: 'ETEswap(BNB/WETE)', desc: "Burned"},
+                            {value: 5, name: 'ETEswap(BTC/WETE)', desc: "Burned"},
+                            {value: 5, name: 'ETEswap(ETH/WETE)', desc: "Burned"},
+                            {value: 5, name: 'MEXC', desc: "Locked 1 Month"},
+                            {value: 5, name: 'Bitget', desc: "Locked 2 Month"},
+                            {value: 5, name: 'Gate', desc: "Locked 3 Month"},
+                            {value: 5, name: 'LBANK', desc: "Locked 4 Month"},
+                            {value: 10, name: 'ETEswap(USDT/WETE)', desc: "Burned"},
+                            {value: 10, name: 'Bitfinex', desc: "Locked 6 Month"},
+                            {value: 10, name: 'Kucoin', desc: "Locked 8 Month"},
+                            {value: 10, name: 'OKX', desc: "Locked 10 Month"},
+                            {value: 10, name: 'Coinbase', desc: "Locked 12 Month"},
+                            {value: 10, name: 'Binance', desc: "Locked 14 Month"},
+                            {value: 5, name: 'Airdrop', desc: "Locked 16 Month"},
+                        ]
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        }();
+
+
+        var video = $("#JQ_video"), btn = $("#JQ_play");
+        video.on("play", function () {
+            btn.hide();
+        }).on("click", function () {
+            try {
+                video[0].pause()
+            } catch (e) {
+
+            }
+        }).on("pause", function () {
+            btn.show();
+        });
+
+        btn.on("click", function () {
+
+            try {
+                video[0].play();
+            } catch (e) {
+
+            }
+            return false;
+        });
+
+        var endTime = 1693411199,
+            startTime = 1692028800,
+            range = endTime - startTime,
+            processEle = $("#JQ_process");
+        setInterval(function () {
+            var now = parseInt((new Date().getTime()) / 1000);
+            var percent = 0;
+            if (endTime <= now) {
+                percent = 100;
+            } else if (startTime <= now) {
+                percent = (now - startTime) * 100 / range;
+            }
+            processEle.css("width", percent + "%")
+        }, 1000);
+        var addBtn = $("#JQ_add_network");
+
+        function alertMsg(msg, type, time) {
+            var cls = 'alert-' + (type || 'info');
+            var ele = $('<div class="show_msg alert ' + cls + '">' + msg + '</div>');
+            $("body").append(ele);
+            setTimeout(function () {
+                ele.remove();
+            }, time);
+            return ele;
+        }
+
+        addBtn.on("click", function () {
+            if (!window.ethereum) {
+                alertMsg("Metamask plugin not detected", 'danger', 3000);
+                return false;
+            }
+            window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [
+                    {
+                        chainId: '0x22fd',
+                        chainName: 'ETE Mainnet',
+                        rpcUrls: ["https://www.etescan.net/rpc"],
+                        nativeCurrency: {
+                            name: "ETE",
+                            symbol: "ETE",
+                            decimals: 18
+                        },
+                        blockExplorerUrls: ["https://www.etescan.net"]
+                    },
+                ],
+            }).then(res => {
+                alertMsg("ETE Mainnet add success", 'success', 3000);
+            }).catch(err => {
+                alertMsg(err.message, 'danger', 3000);
+            });
+        });
+    })
+</script>
+</body>
+</html>
